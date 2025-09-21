@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Histori Pembelian</title>
+<style>
+  body { font-family: Arial, sans-serif; background:#121212; color:#fff; padding:20px; }
+  table { width:100%; border-collapse: collapse; margin-top:20px; }
+  th, td { border:1px solid #444; padding:8px; text-align:left; }
+  th { background:#333; }
+</style>
+</head>
+<body>
+<h1>Histori Pembelian Asuransi</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Produk</th>
+      <th>Nama</th>
+      <th>Harga Mobil</th>
+      <th>Masa Pertanggungan</th>
+      <th>Premi</th>
+      <th>Tanggal</th>
+    </tr>
+  </thead>
+  <tbody id="historiBody"></tbody>
+</table>
+
+<script>
+const data = JSON.parse(localStorage.getItem('historiPembelian') || '[]');
+const tbody = document.getElementById('historiBody');
+data.forEach(item => {
+  const tr = document.createElement('tr');
+  tr.innerHTML = `
+    <td>${item.produk || '-'}</td>
+    <td>${item.nama || '-'}</td>
+    <td>${item.hargaMobil ? "Rp " + item.hargaMobil.toLocaleString('id-ID') : '-'}</td>
+    <td>${item.masa || '-'}</td>
+    <td>${item.premi ? "Rp " + item.premi.toLocaleString('id-ID') : '-'}</td>
+    <td>${item.tanggal || '-'}</td>
+  `;
+  tbody.appendChild(tr);
+});
+</script>
+</body>
+</html>

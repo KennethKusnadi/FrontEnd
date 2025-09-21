@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beli Asuransi Kesehatan</title>
+<style>
+  body { font-family: Arial, sans-serif; background:#121212; color:#fff; padding:20px; }
+  label { display:block; margin-top:10px; }
+  input { width:100%; padding:8px; margin-top:5px; }
+  button { margin-top:15px; padding:10px 20px; background:#2196f3; border:none; color:#fff; cursor:pointer; }
+  button:hover { background:#1976d2; }
+  .hasil { margin-top:20px; font-weight:bold; }
+  .wa { margin-top:20px; }
+  a { color:#4caf50; text-decoration:none; }
+</style>
+</head>
+<body>
+<h1>Pembelian Asuransi Kesehatan</h1>
+<label>Nama Peserta:
+  <input type="text" id="nama">
+</label>
+<label>Usia Peserta:
+  <input type="number" id="usia">
+</label>
+<label>Lama Pertanggungan (Tahun):
+  <input type="number" id="tahun">
+</label>
+<button onclick="hitungPremi()">Hitung Premi & Konfirmasi</button>
+<div id="hasil" class="hasil"></div>
+<div class="wa">
+  <p>Hubungi WhatsApp kami jika ada pertanyaan:</p>
+  <a href="https://wa.me/6282260000826" target="_blank">082260000826</a>
+</div>
+
+<script>
+function hitungPremi() {
+  const nama = document.getElementById('nama').value.trim();
+  const usia = parseFloat(document.getElementById('usia').value) || 0;
+  const tahun= parseFloat(document.getElementById('tahun').value) || 0;
+  if (!nama || !usia || !tahun) { alert("Harap isi semua field!"); return; }
+
+  const premi = (500000 + usia * 20000) * tahun;
+
+  const histori = JSON.parse(localStorage.getItem('historiPembelian') || '[]');
+  histori.push({
+    produk: 'Asuransi Kesehatan',
+    nama: nama,
+    hargaMobil: "",
+    masa: tahun + " Tahun",
+    premi: premi,
+    tanggal: new Date().toLocaleString('id-ID')
+  });
+  localStorage.setItem('historiPembelian', JSON.stringify(histori));
+
+  document.getElementById('hasil').innerHTML =
+    "Estimasi Premi: Rp " + premi.toLocaleString('id-ID') +
+    "<br><a href='histori.html' style='color:#4caf50;'>Lihat Histori Pembelian</a>";
+}
+</script>
+</body>
+</html>

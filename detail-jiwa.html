@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Asuransi Jiwa - OurProtector</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body { background-color: #121212; color: #eee; }
+    .detail-container {
+      max-width: 800px; margin: 40px auto;
+      background: #1e1e1e; padding: 30px;
+      border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+    h2, h3 { color: #00ffff; }
+    p { color: #ccc; line-height: 1.6; }
+    label { display:block; margin-top:15px; color:#fff; }
+    input, select {
+      width:100%; padding:10px; border:none; border-radius:5px;
+      margin-top:5px; background:#2a2a2a; color:#fff;
+    }
+    input:focus, select:focus { outline:2px solid #00ffff; }
+    button {
+      margin-top:20px; padding:12px 20px;
+      background:#00ffff; border:none; border-radius:6px;
+      color:#000; font-weight:bold; cursor:pointer;
+    }
+    button:hover { background:#00a0a0; color:#fff; }
+    #result { margin-top:20px; font-weight:bold; color:#0f0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>OurProtector</h1>
+    <nav>
+      <a href="index.html">Beranda</a>
+      <a href="produk.html">Produk</a>
+      <a href="about.html">Tentang Kami</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <div class="detail-container">
+    <h2>Asuransi Jiwa</h2>
+    <p>Berikan perlindungan finansial untuk keluarga Anda dengan produk asuransi jiwa yang menjamin santunan meninggal dunia maupun cacat tetap.</p>
+
+    <h3>Form Pembelian</h3>
+    <form id="buyForm">
+      <label for="nama">Nama Lengkap</label>
+      <input type="text" id="nama" required placeholder="Nama Anda">
+
+      <label for="usia">Usia</label>
+      <input type="number" id="usia" required placeholder="misal 30">
+
+      <label for="uangPertanggungan">Uang Pertanggungan (Rp)</label>
+      <input type="number" id="uangPertanggungan" required placeholder="misal 500000000">
+
+      <button type="button" onclick="hitungPremi()">Hitung Premi</button>
+      <div id="result"></div>
+      <button type="submit">Konfirmasi Pembelian</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 OurProtector. Semua Hak Dilindungi.</p>
+  </footer>
+
+  <script>
+    function hitungPremi(){
+      const usia = parseInt(document.getElementById('usia').value);
+      const uang = parseFloat(document.getElementById('uangPertanggungan').value);
+      const result = document.getElementById('result');
+
+      if(!usia || !uang){
+        result.textContent = "Isi semua field untuk menghitung premi.";
+        result.style.color = "red";
+        return;
+      }
+
+      let premi = uang * 0.01;
+      if(usia > 25) {
+        premi += (Math.floor((usia - 25)/5) * 0.005 * uang);
+      }
+
+      result.textContent = "Total Premi: Rp " + premi.toLocaleString("id-ID") + " / tahun";
+      result.style.color = "#0f0";
+    }
+
+    document.getElementById('buyForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const nama = document.getElementById('nama').value.trim();
+      const usia = document.getElementById('usia').value.trim();
+      const uang = document.getElementById('uangPertanggungan').value.trim();
+      const result = document.getElementById('result').textContent;
+
+      if(result === "" || result.includes("Isi")){
+        alert("Silakan hitung premi terlebih dahulu.");
+        return;
+      }
+
+      const pembelian = {
+        produk: "Asuransi Jiwa",
+        nama: nama,
+        usia: usia + " tahun",
+        uangPertanggungan: "Rp " + parseInt(uang).toLocaleString("id-ID"),
+        premi: result.replace("Total Premi: ",""),
+        tanggal: new Date().toLocaleString("id-ID")
+      };
+      let histori = JSON.parse(localStorage.getItem("historiPembelian")) || [];
+      histori.push(pembelian);
+      localStorage.setItem("historiPembelian", JSON.stringify(histori));
+
+      alert("Terima kasih, " + nama + "! Pembelian berhasil disimpan.");
+      window.location.href = "histori.html";
+    });
+  </script>
+</body>
+</html>

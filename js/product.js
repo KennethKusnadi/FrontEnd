@@ -1,0 +1,24 @@
+document.addEventListener("DOMContentLoaded", () => {
+  try {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) {
+      alert("Silakan login terlebih dahulu.");
+      window.location.href = "login.html";
+      return;
+    }
+
+    const welcomeEl = document.getElementById("welcomeMsg");
+    if (welcomeEl) welcomeEl.innerText = "Halo, " + (user.name || user.email || "Pengguna") + "! Senang melihat Anda kembali.";
+
+    const logoutBtn = document.getElementById("logoutBtn");
+    if (logoutBtn) {
+      logoutBtn.addEventListener("click", () => {
+        localStorage.removeItem("user");
+        alert("Anda berhasil logout.");
+        window.location.href = "login.html";
+      });
+    }
+  } catch (err) {
+    console.error("product.js error:", err);
+  }
+});

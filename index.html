@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OurProtector - Marketplace Asuransi</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; line-height:1.6; }
+    header { background:#004aad; color:white; padding:15px 30px; display:flex; justify-content:space-between; align-items:center; }
+    nav a { color:white; margin:0 10px; text-decoration:none; }
+    nav a:hover { text-decoration:underline; }
+    .hero { text-align:center; padding:60px 20px; background:#f0f4ff; }
+    .hero h1 { font-size:2rem; color:#004aad; margin-bottom:10px; }
+    .hero p { max-width:600px; margin:auto; }
+    .container { max-width:1000px; margin:auto; padding:40px 20px; }
+    h2 { text-align:center; color:#004aad; margin-bottom:30px; }
+
+    .produk-list { display:flex; justify-content:space-around; gap:20px; flex-wrap:wrap; }
+    .produk-card { border:1px solid #ddd; border-radius:10px; padding:15px; background:#fafafa; text-align:center; width:30%; min-width:220px; }
+    .produk-card img { width:100px; height:100px; object-fit:cover; margin-bottom:10px; border-radius:8px; }
+    .produk-card h3 { margin:10px 0; color:#004aad; font-size:1.1rem; }
+    .btn { background:#ffcc00; color:#000; padding:8px 16px; border-radius:5px; text-decoration:none; font-weight:bold; display:inline-block; margin-top:10px; font-size:0.9rem; }
+    .btn:hover { background:#e6b800; }
+    footer { background:#004aad; color:white; text-align:center; padding:15px; margin-top:40px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>OurProtector</h1>
+    <nav>
+      <a href="index.html">Beranda</a>
+      <a href="produk.html">Produk</a>
+      <a href="about.html">Tentang Kami</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Marketplace Asuransi Terpercaya</h1>
+    <p>Pilih dan bandingkan produk asuransi kesehatan, mobil, dan jiwa dari berbagai perusahaan.</p>
+  </section>
+
+  <section class="container">
+    <h2>Pilihan Asuransi</h2>
+    <div class="produk-list">
+      <div class="produk-card">
+        <img src="images/Kesehatan.jpg" alt="Asuransi Kesehatan">
+        <h3>Asuransi Kesehatan</h3>
+        <p>Perlindungan biaya medis & rawat inap.</p>
+        <a href="detail-kesehatan.html" class="btn">Lihat Detail</a>
+      </div>
+      <div class="produk-card">
+        <img src="images/Mobil.jpg" alt="Asuransi Mobil">
+        <h3>Asuransi Mobil</h3>
+        <p>Proteksi kendaraan dari kerusakan & kehilangan.</p>
+        <a href="detail-mobil.html" class="btn">Lihat Detail</a>
+      </div>
+      <div class="produk-card">
+        <img src="images/Jiwa.jpeg" alt="Asuransi Jiwa">
+        <h3>Asuransi Jiwa</h3>
+        <p>Memberikan jaminan finansial untuk keluarga.</p>
+        <a href="detail-jiwa.html" class="btn">Lihat Detail</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 OurProtector. Semua Berhak Dilindungi.
+  </footer>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#f4f4f4; margin:0; }
+    header, footer { background:#222; color:white; padding:15px 40px; display:flex; justify-content:space-between; align-items:center; }
+    header h1 { color:cyan; margin:0; }
+    .container { max-width:700px; margin:40px auto; background:white; padding:30px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.2); }
+    button { padding:12px; background:cyan; border:none; border-radius:5px; font-weight:bold; cursor:pointer; }
+    button:hover { background:#00a0a0; color:white; }
+  </style>
+</head>
+<body>
+<header>
+  <h1>OurProtector</h1>
+  <nav>
+    <a href="index.html">Beranda</a>
+    <a href="history.html">Histori</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h2>Checkout Asuransi Kesehatan</h2>
+  <p id="detailPembelian"></p>
+  <button onclick="selesai()">Konfirmasi & Selesai</button>
+</div>
+
+<footer>© 2025 OurProtector</footer>
+
+<script>
+const pembelian = JSON.parse(localStorage.getItem("pembelianKesehatan"));
+if (!pembelian) { alert("Belum ada data pembelian."); location.href="beli_kesehatan.html"; }
+
+document.getElementById("detailPembelian").innerText =
+  "Nama: " + pembelian.nama + "\nPremi: Rp " + pembelian.premi.toLocaleString("id-ID");
+
+function selesai() {
+  let history = JSON.parse(localStorage.getItem("history")) || [];
+  history.push({ produk:"Asuransi Kesehatan", nama:pembelian.nama, premi:pembelian.premi, waktu:new Date().toLocaleString("id-ID") });
+  localStorage.setItem("history", JSON.stringify(history));
+  alert("Pembelian berhasil!");
+  location.href="history.html";
+}
+</script>
+</body>
+</html>

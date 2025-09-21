@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Produk Asuransi - OurProtector</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; line-height:1.6; }
+    header { background:#004aad; color:white; padding:15px 30px; display:flex; justify-content:space-between; align-items:center; }
+    nav a { color:white; margin:0 10px; text-decoration:none; }
+    nav a:hover { text-decoration:underline; }
+    .container { max-width:1000px; margin:auto; padding:40px 20px; }
+    h1 { margin-bottom:20px; color:#004aad; }
+    .produk-kategori { margin-bottom:50px; }
+    .produk-card { border:1px solid #ddd; border-radius:10px; padding:20px; margin:15px 0; background:#fafafa; }
+    .produk-card h3 { margin:0 0 10px; color:#004aad; }
+    .produk-card p { margin:5px 0; }
+    .btn { background:#ffcc00; color:#000; padding:10px 20px; border-radius:5px; text-decoration:none; font-weight:bold; display:inline-block; margin-top:10px; }
+    .btn:hover { background:#e6b800; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>OurProtector</h1>
+    <nav>
+      <a href="index.html">Beranda</a>
+      <a href="produk.html">Produk</a>
+      <a href="about.html">Tentang Kami</a>
+      <a href="konsultasi.html">Konsultasi</a>
+    </nav>
+  </header>
+
+  <section class="container">
+    <h1>Daftar Produk Asuransi</h1>
+
+    <div class="produk-kategori">
+      <h2>🚗 Asuransi Mobil</h2>
+      <div class="produk-card">
+        <h3>Asuransi Mobil Comprehensive</h3>
+        <p><b>Perusahaan:</b> ProtectCar Indonesia</p>
+        <p><b>Cakupan:</b> Perlindungan all-risk (tabrakan, pencurian, kebakaran, banjir)</p>
+        <p><b>Fitur:</b> Layanan derek 24 jam, bengkel rekanan resmi</p>
+        <a href="detail-mobil.html" class="btn">Lihat Detail</a>
+      </div>
+      <div class="produk-card">
+        <h3>Asuransi Mobil TLO (Total Loss Only)</h3>
+        <p><b>Perusahaan:</b> AmanMobil</p>
+        <p><b>Cakupan:</b> Ganti rugi jika mobil hilang atau rusak total >75%</p>
+        <p><b>Fitur:</b> Premi lebih murah, cocok untuk mobil lama</p>
+        <a href="detail-mobil.html" class="btn">Lihat Detail</a>
+      </div>
+    </div>
+
+    <div class="produk-kategori">
+      <h2>🏥 Asuransi Kesehatan</h2>
+      <div class="produk-card">
+        <h3>HealthCare Basic</h3>
+        <p><b>Perusahaan:</b> SehatSentosa</p>
+        <p><b>Cakupan:</b> Rawat inap hingga Rp200 juta/tahun</p>
+        <p><b>Fitur:</b> Cashless di 500+ rumah sakit</p>
+        <a href="detail-kesehatan.html" class="btn">Lihat Detail</a>
+      </div>
+      <div class="produk-card">
+        <h3>HealthCare Gold</h3>
+        <p><b>Perusahaan:</b> MedikaPrima</p>
+        <p><b>Cakupan:</b> Rawat inap Rp1 miliar/tahun, penyakit kritis</p>
+        <p><b>Fitur:</b> Coverage internasional</p>
+        <a href="detail-kesehatan.html" class="btn">Lihat Detail</a>
+      </div>
+    </div>
+
+    <!-- Kategori: Asuransi Jiwa -->
+    <div class="produk-kategori">
+      <h2>🧍 Asuransi Jiwa</h2>
+      <div class="produk-card">
+        <h3>LifeSecure 1 Miliar</h3>
+        <p><b>Perusahaan:</b> HidupMakmur</p>
+        <p><b>Pertanggungan:</b> Rp1 miliar</p>
+        <p><b>Fitur:</b> Premi terjangkau, proteksi dasar keluarga</p>
+        <a href="detail-jiwa.html" class="btn">Lihat Detail</a>
+      </div>
+      <div class="produk-card">
+        <h3>LifeSecure Premium</h3>
+        <p><b>Perusahaan:</b> AmanJiwa</p>
+        <p><b>Pertanggungan:</b> Rp5 miliar</p>
+        <p><b>Fitur:</b> Cocok untuk proteksi investasi & warisan</p>
+        <a href="detail-jiwa.html" class="btn">Lihat Detail</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

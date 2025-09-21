@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - OurProtector</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>OurProtector</h1>
+    <nav>
+      <a href="index.html">Beranda</a>
+      <a href="produk.html">Produk</a>
+      <a href="about.html">Tentang Kami</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="form-container">
+      <h2>Daftar Akun Baru</h2>
+
+      <form id="signupForm">
+        <label for="fullname">Nama Lengkap</label>
+        <input type="text" id="fullname" placeholder="Nama lengkap Anda" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="contoh@email.com" required>
+
+        <label for="phone">Nomor Handphone</label>
+        <input type="tel" id="phone" placeholder="08xxxxxxxxxx" required>
+
+        <label for="password">Kata Sandi</label>
+        <input type="password" id="password" placeholder="Minimal 8 karakter" required>
+
+        <label for="confirmPassword">Konfirmasi Kata Sandi</label>
+        <input type="password" id="confirmPassword" placeholder="Ulangi kata sandi" required>
+
+        <button type="submit">Daftar</button>
+        <p id="message" class=""></p>
+      </form>
+
+      <p class="links">Sudah punya akun? <a href="login.html">Login</a></p>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 OurProtector. All rights reserved.
+  </footer>
+
+  <script>
+    const signupForm = document.getElementById('signupForm');
+    const message = document.getElementById('message');
+
+    signupForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const fullname = document.getElementById('fullname').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const confirmPassword = document.getElementById('confirmPassword').value.trim();
+
+      if (fullname.length < 3 || fullname.length > 32 || /\d/.test(fullname)) {
+        message.textContent = 'Nama lengkap harus 3-32 karakter dan tidak boleh mengandung angka.';
+        message.className = 'error'; return;
+      }
+
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (!email.match(emailPattern)) {
+        message.textContent = 'Format email tidak valid.';
+        message.className = 'error'; return;
+      }
+
+      const phonePattern = /^08[0-9]{8,14}$/;
+      if (!phone.match(phonePattern)) {
+        message.textContent = 'Nomor HP harus diawali 08 dan panjang 10-16 digit.';
+        message.className = 'error'; return;
+      }
+
+      if (password.length < 8) {
+        message.textContent = 'Kata sandi minimal 8 karakter.';
+        message.className = 'error'; return;
+      }
+
+      if (password !== confirmPassword) {
+        message.textContent = 'Konfirmasi kata sandi tidak sesuai.';
+        message.className = 'error'; return;
+      }
+
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+      if (users.find(u => u.email === email)) {
+        message.textContent = 'Email sudah terdaftar.';
+        message.className = 'error'; return;
+      }
+
+      users.push({ fullname, email, phone, password });
+      localStorage.setItem('users', JSON.stringify(users));
+
+      message.textContent = 'Pendaftaran berhasil! Silakan login.';
+      message.className = 'success';
+      setTimeout(() => { window.location.href = 'login.html'; }, 1200);
+    });
+  </script>
+</body>
+</html>

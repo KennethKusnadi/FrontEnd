@@ -1,0 +1,172 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #121212;
+  color: #ffffff; 
+  line-height: 1.6;
+}
+
+header {
+  background-color: #0a0a0a;
+  padding: 20px 0;
+  text-align: center;
+}
+
+header h1 {
+  color: #ffffff;
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #ffd700; 
+}
+
+.hero {
+  background-color: #0a0a0a;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 32px;
+  color: #ffffff; 
+  margin-bottom: 15px;
+}
+
+.hero p {
+  color: #000000;
+  font-size: 18px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+
+.section-title {
+  text-align: center;
+  margin: 40px 0 20px;
+  color: #ffffff;
+  font-size: 24px;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0 20px 40px;
+}
+
+.card {
+  background-color: #f8f8f8; 
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  width: 260px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.card img {
+  width: 120px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  color: #0044aa; 
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #000000;
+  min-height: 40px;
+}
+
+.card button {
+  background-color: #ffd700;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #000000;
+}
+
+.card button:hover {
+  background-color: #ffbf00;
+}
+
+.form-container {
+  max-width: 400px;
+  margin: 40px auto;
+  background-color: #1e1e1e;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.form-container h2 {
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-container label {
+  color: #ffffff;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: #2a2a2a;
+  color: #ffffff;
+}
+
+.form-container input::placeholder {
+  color: #aaaaaa;
+}
+
+.form-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ffd700;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #000000;
+}
+
+.form-container button:hover {
+  background-color: #ffbf00;
+}
+
+footer {
+  background-color: #0a0a0a;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+
+footer p {
+  color: #bbbbbb;
+  font-size: 14px;
+}
